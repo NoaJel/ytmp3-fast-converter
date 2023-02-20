@@ -5,7 +5,7 @@ from yt_dlp import YoutubeDL
 VideoInfo = Optional[dict[str, str]]
 
 
-def get_videos_with_artist_and_track(video_urls: (set | frozenset)[str]) -> set[str]:
+def get_videos_with_artist_and_track(video_urls: set[str] | frozenset[str]) -> set[str]:
     urls_with_artist_and_track_info: set[str] = set()
 
     for url in video_urls:
@@ -27,7 +27,7 @@ def get_video_info(yt_url: str) -> VideoInfo:
         return None
 
 
-def download_videos_as_mp3(urls: (set | frozenset)[str], music_file_format_template: str):
+def download_videos_as_mp3(urls: set[str] | frozenset[str], music_file_format_template: str):
     YDL_DEFAULT_MUSIC_OPTIONS = {
         'format': "bestaudio/best",
         'keepvideo': False,
