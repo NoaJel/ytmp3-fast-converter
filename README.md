@@ -1,6 +1,10 @@
 # YTmp3 Fast Converter (YTFC)
 
-Quickly download music from YouTube using a URL file and convert all to MP3 in one go!
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=NoaJel_ytmp3-fast-converter&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=NoaJel_ytmp3-fast-converter)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=NoaJel_ytmp3-fast-converter&metric=coverage)](https://sonarcloud.io/summary/new_code?id=NoaJel_ytmp3-fast-converter)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=NoaJel_ytmp3-fast-converter&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=NoaJel_ytmp3-fast-converter)
+
+**Quickly** download music from **YouTube** using a URL file and convert all to **MP3** *in one go*!
 
 ## How does it work?
 
