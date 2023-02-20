@@ -1,5 +1,6 @@
 import ctypes
 from ctypes import windll, wintypes
+from uuid import UUID
 
 
 class GUID(ctypes.Structure):
@@ -10,7 +11,7 @@ class GUID(ctypes.Structure):
         ("Data4", wintypes.BYTE * 8)
     ]
 
-    def __init__(self, uuid_):
+    def __init__(self, uuid_: UUID):
         ctypes.Structure.__init__(self)
         self.Data1, self.Data2, self.Data3, self.Data4[0], self.Data4[1], rest = uuid_.fields
         for i in range(2, 8):
@@ -37,15 +38,18 @@ class PathNotFoundException(Exception):
     pass
 
 
-def getPathFromFolder(folder_uuid, user_handle=UserHandle.current):
+def get_path_from_folder(folder_uuid: UUID, user_handle: wintypes.HANDLE = UserHandle.current) -> str:
     fid = GUID(folder_uuid)
-    pPath = ctypes.c_wchar_p()
+    p_path = ctypes.c_wchar_p()
     S_OK = 0
 
-    if _SHGetKnownFolderPath(ctypes.byref(fid), 0, user_handle, ctypes.byref(pPath)) != S_OK:
+    if _SHGetKnownFolderPath(ctypes.byref(fid), 0, user_handle, ctypes.byref(p_path)) != S_OK:
         raise PathNotFoundException()
 
-    path = pPath.value
-    _CoTaskMemFree(pPath)
+    path = p_path.value
+    _CoTaskMemFree(p_path)
+
+    if (path == None):
+        raise PathNotFoundException()
 
     return path

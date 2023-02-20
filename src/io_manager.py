@@ -1,13 +1,13 @@
 import os
 from pathlib import Path
 
-from folder_uuid import FOLDER_UUID
+from folder_uuid import FolderUuid
 from globals import WARNING_ERROR_MESSAGE
 
-from known_paths import getPathFromFolder
+from known_paths import get_path_from_folder
 
 
-DOWNLOADS_FOLDER = getPathFromFolder(FOLDER_UUID.Downloads)
+DOWNLOADS_FOLDER = get_path_from_folder(FolderUuid.downloads)
 YTMP3_FAST_CONVERTER_FOLDER = "YTmp3 Fast Converter"
 YTMP3_FAST_CONVERTER_FOLDER_PATH = os.path.join(
     DOWNLOADS_FOLDER, YTMP3_FAST_CONVERTER_FOLDER)
@@ -43,7 +43,7 @@ def check_if_app_paths_exist():
         exit()
 
 
-def get_urls_from_text_file(file_path):
+def get_urls_from_text_file(file_path: str):
     if os.stat(file_path).st_size != 0:
         with open(file_path, 'r+') as url_file:
             lines = url_file.readlines()
