@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "ytmp3-fast-converter"
+version = "0.1.0"
+description = "Quickly download music from YouTube using a URL file and convert all to MP3 in one go!"
+authors = ["Noa JELSCH <noa.jelsch@viacesi.fr>"]
+license = "MIT"
+readme = "README.md"
+packages = [{include = "src/ytfc"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+yt-dlp = "^2023.2.17"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
