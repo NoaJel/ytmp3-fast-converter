@@ -1,3 +1,3 @@
 @echo off
-python "./src/main.py"
+python "./src/ytfc/main.py"
 cmd /K
